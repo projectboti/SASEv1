@@ -6,6 +6,7 @@
 package sase.GUI.Admin;
 
 import java.sql.ResultSet;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import sase.Control.Clases.*;
 import sase.Control.methods;
@@ -15,14 +16,16 @@ import sase.Control.methods;
  * @author VAIO
  */
 public class Inventario extends javax.swing.JFrame {
-Category cat = new Category();
+
+    Category cat = new Category();
+
     /**
      * Creates new form Inventario
      */
     public Inventario() {
-        
+
         initComponents();
-        this.cargaCombo();
+        this.cargarItemsComboBox();
     }
 
     /**
@@ -78,6 +81,12 @@ Category cat = new Category();
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("AGREGAR PRODUCTO");
 
+        jcmb_categoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcmb_categoriaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,16 +107,16 @@ Category cat = new Category();
                             .addComponent(jtxt_cantidad, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jtxt_nombre, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jtxt_codigo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
                             .addComponent(jcmb_categoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtn_agregar)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(133, 133, 133)
                 .addComponent(jLabel6)
-                .addGap(23, 23, 23))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,39 +159,69 @@ Category cat = new Category();
         }
     }//GEN-LAST:event_jtxt_codigoFocusLost
 
-    public void cargaCombo() {
+    private void jcmb_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmb_categoriaActionPerformed
+        //Category oItem=(Category)jcmb_categoria.getSelectedItem();       
+        String oItem = jcmb_categoria.getSelectedItem().toString();
+        //Category oItem = new Category();
+        if(oItem!=null)
+        {
+            //System.out.println(oItem.getId()+"");
+            System.out.println(oItem);
+            /*TxtCodigo.setText(oItem.getId_Item()+"");
+            TxtPrecio.setText(oItem.getDescripcion());*/
+        }
+    }//GEN-LAST:event_jcmb_categoriaActionPerformed
 
-       /* DefaultComboBoxModel value;
+    /*public void cargaCombo() {
+
+        /* DefaultComboBoxModel value;
 
         value = new DefaultComboBoxModel();
         
         jcmb_categoria.setModel(value);
 
         value.addElement(new Category("Seleccione", 0));
-        */
+         */
+        //Category cat = new Category();
+        //-------------methods met = new methods();
+        //String[][] c = met.categoryData();
+        //DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
 
-        methods met = new methods();
-        String[][] c = met.categoryData();
-        DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();  
-
-        modeloCombo.addElement("Seleccione un campo");//es el primer registro q mostrara el combo       
-        jcmb_categoria.setModel(modeloCombo);//con esto lo agregamos al objeto al jcombobox   
-        try {
-          for (int i = 0; i < c.length; i++) {
-              modeloCombo.addElement(c[i][1]);
-            //System.out.println();
+        //modeloCombo.addElement("Seleccione un campo");//es el primer registro q mostrara el combo       
+         
+        //try {
+          //  while (met.categoryData().next()){
+            //for (int i = 0; i < c.length; i++) {
+                //modeloCombo.addElement(new Category(Integer.parseInt(met.categoryData().getString(1)),met.categoryData().getString(2)));                
+            //}
+            //----------------jcmb_categoria.setModel(met.categoryData());//con esto lo agregamos al objeto al jcombobox  
+            //}
+        //} catch (Exception e) {
+          //  System.out.println(e.getMessage());
+       // }
+       
+       /*List oListaItem=CCItem.listarItem();
+        if(oListaItem!=null)
+        {
+            int size=oListaItem.size();           
+            for(int i=0;i < size; i++)
+            {
+                jcmb_categoria.addItem(oListaItem.get(i));
+            }         
+        }       
+    }*/
+    
+    private void cargarItemsComboBox()
+    {
+        List<Category> oListaItem=CCItem.listarItem();
+        if(oListaItem!=null)
+        {
+            int size=oListaItem.size();
+            for(int i=0;i<size;i++)
+            {
+                jcmb_categoria.addItem(oListaItem.get(i).toString());
             }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
-
-        //df.setSelectedItem(c);
-        /* for(int i=0; i<c.length; i++){
-//                      combo.addItem(lista[i][0].toString());
-                        this.jcmb_categoria.addItem(new Category(Integer.parseInt(c[i][0].toString()), c[i][1].toString()));
-                        
-                }*/
     }
 
     /**

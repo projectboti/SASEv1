@@ -6,6 +6,9 @@
 package sase.Control;
 import sase.Control.Clases.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import sase.Connection.Connection;
 
 /**
@@ -52,21 +55,23 @@ public class methods {
        return data;
    }
    
-   public String[][] categoryData(){
+   public DefaultComboBoxModel categoryData(){
+       DefaultComboBoxModel model = new DefaultComboBoxModel();
        String[][] c = new String[this.cantidadCategorias()][2];
        int contador = 0;
        try{
            this.ps = cn.prepareStatement("SELECT id, nombre FROM dbo.categoria");
            rs = ps.executeQuery();
            while (rs.next()){
-               c[contador][0] = rs.getString(1);
-               c[contador][1] = rs.getString(2);
-               contador = contador + 1;
+               /*c[contador][0] = rs.getString("id");
+               c[contador][1] = rs.getString("id");
+               contador = contador + 1;*/
+               model.addElement(new Category(Integer.parseInt(rs.getString("id")), rs.getString("nombre")));
            }
        }catch(Exception e){
            System.out.println(e.getMessage());
        }      
-       return c;
+       return model;
    }
    
    private int cantidadCategorias(){
@@ -82,5 +87,5 @@ public class methods {
            System.out.println(e.getMessage());
        }
      return ret;
-   }
+   }  
 }

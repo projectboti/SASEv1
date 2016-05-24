@@ -11,14 +11,14 @@ package sase.Control.Clases;
  */
 public class Category {
     private int id;
-    private String categoria;
+    private String nombre;
 
     public Category() {
     }
 
-    public Category(String categoria,int id) {
+    public Category(int id, String nombre) {
         this.id = id;
-        this.categoria = categoria;
+        this.nombre = nombre;
     }
 
     public int getId() {
@@ -30,12 +30,14 @@ public class Category {
     }
 
     public String getCategoria() {
-        return categoria;
+        return nombre;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategoria(String nombre) {
+        this.nombre = nombre;
     }
     
-    
+    public String toString(){
+        return this.nombre;
+    }
 }
