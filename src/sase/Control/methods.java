@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package sase.Control;
-import sase.Control.users;
+import sase.Control.Clases.*;
 import java.sql.*;
 import sase.Connection.Connection;
 
@@ -50,5 +50,37 @@ public class methods {
            System.out.println(e.getMessage());
        }
        return data;
+   }
+   
+   public String[][] categoryData(){
+       String[][] c = new String[this.cantidadCategorias()][2];
+       int contador = 0;
+       try{
+           this.ps = cn.prepareStatement("SELECT id, nombre FROM dbo.categoria");
+           rs = ps.executeQuery();
+           while (rs.next()){
+               c[contador][0] = rs.getString(1);
+               c[contador][1] = rs.getString(2);
+               contador = contador + 1;
+           }
+       }catch(Exception e){
+           System.out.println(e.getMessage());
+       }      
+       return c;
+   }
+   
+   private int cantidadCategorias(){
+       int ret = 0;
+       try{
+        this.ps = cn.prepareStatement("SELECT count(id) FROM dbo.categoria");
+        rs = ps.executeQuery();
+        if(rs.next()){
+            ret = Integer.parseInt(rs.getString(1));
+        }
+       }catch(Exception e){
+           ret = 0;
+           System.out.println(e.getMessage());
+       }
+     return ret;
    }
 }

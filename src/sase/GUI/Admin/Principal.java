@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package sase.GUI.Admin;
+import sase.Control.Clases.users;
 import sase.Control.*;
 
 /**
@@ -38,6 +39,8 @@ public class Principal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jmnu_articulos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,6 +48,14 @@ public class Principal extends javax.swing.JFrame {
         jlbl_name.setText("prueba");
 
         jMenu1.setText("File");
+
+        jMenu3.setText("Agregar");
+
+        jmnu_articulos.setText("Articulos");
+        jMenu3.add(jmnu_articulos);
+
+        jMenu1.add(jMenu3);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -111,8 +122,10 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel jlbl_name;
+    private javax.swing.JMenuItem jmnu_articulos;
     // End of variables declaration//GEN-END:variables
 }
