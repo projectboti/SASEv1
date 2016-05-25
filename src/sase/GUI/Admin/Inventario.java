@@ -25,7 +25,6 @@ public class Inventario extends javax.swing.JFrame {
     public Inventario() {
 
         initComponents();
-        this.cargarItemsComboBox();
     }
 
     /**
@@ -44,14 +43,13 @@ public class Inventario extends javax.swing.JFrame {
         jtxt_cantidad = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtxa_descripcion = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jcmb_categoria = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jtxt_precio = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jtxt_XMayor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,23 +65,19 @@ public class Inventario extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre");
 
-        jLabel3.setText("Categoria");
-
         jLabel4.setText("Cantidad");
-
-        jLabel5.setText("Descripcion");
-
-        jtxa_descripcion.setColumns(20);
-        jtxa_descripcion.setRows(5);
-        jScrollPane1.setViewportView(jtxa_descripcion);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("AGREGAR PRODUCTO");
 
-        jcmb_categoria.addActionListener(new java.awt.event.ActionListener() {
+        jLabel7.setText("Precio");
+
+        jLabel8.setText("XMayor");
+
+        jtxt_XMayor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcmb_categoriaActionPerformed(evt);
+                jtxt_XMayorActionPerformed(evt);
             }
         });
 
@@ -93,30 +87,30 @@ public class Inventario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(jLabel6)
+                .addContainerGap(105, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtxt_cantidad, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jtxt_nombre, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jtxt_codigo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jcmb_categoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(jtxt_precio, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jtxt_XMayor)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtn_agregar)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jLabel6)
-                .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,19 +129,19 @@ public class Inventario extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jcmb_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jtxt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jtxt_XMayor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtn_agregar)
-                .addGap(13, 13, 13))
+                .addContainerGap())
         );
 
         pack();
@@ -159,18 +153,9 @@ public class Inventario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtxt_codigoFocusLost
 
-    private void jcmb_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmb_categoriaActionPerformed
-        //Category oItem=(Category)jcmb_categoria.getSelectedItem();       
-        String oItem = jcmb_categoria.getSelectedItem().toString();
-        //Category oItem = new Category();
-        if(oItem!=null)
-        {
-            //System.out.println(oItem.getId()+"");
-            System.out.println(oItem);
-            /*TxtCodigo.setText(oItem.getId_Item()+"");
-            TxtPrecio.setText(oItem.getDescripcion());*/
-        }
-    }//GEN-LAST:event_jcmb_categoriaActionPerformed
+    private void jtxt_XMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_XMayorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_XMayorActionPerformed
 
     /*public void cargaCombo() {
 
@@ -211,19 +196,6 @@ public class Inventario extends javax.swing.JFrame {
         }       
     }*/
     
-    private void cargarItemsComboBox()
-    {
-        List<Category> oListaItem=CCItem.listarItem();
-        if(oListaItem!=null)
-        {
-            int size=oListaItem.size();
-            for(int i=0;i<size;i++)
-            {
-                jcmb_categoria.addItem(oListaItem.get(i).toString());
-            }
-        }
-    }
-
     /**
      * @param args the command line arguments
      */
@@ -262,18 +234,17 @@ public class Inventario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbtn_agregar;
-    private javax.swing.JComboBox<String> jcmb_categoria;
-    private javax.swing.JTextArea jtxa_descripcion;
+    private javax.swing.JTextField jtxt_XMayor;
     private javax.swing.JTextField jtxt_cantidad;
     private javax.swing.JTextField jtxt_codigo;
     private javax.swing.JTextField jtxt_nombre;
+    private javax.swing.JTextField jtxt_precio;
     // End of variables declaration//GEN-END:variables
 }
