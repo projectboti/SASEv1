@@ -44,48 +44,66 @@ public class methods {
            this.ps.setString(1, contraseña);
            rs = ps.executeQuery();
            if(rs.next()){
-               data.setUser(rs.getString(1));
-               data.setName(rs.getString(2));
-               data.setLast_name(rs.getString(3));
-               data.setType(Integer.parseInt(rs.getString(4)));
+               data.setName(rs.getString(1));
+               data.setLast_name(rs.getString(2));
+               data.setSecond_ln(rs.getString(3));
+               data.setPhone(rs.getInt(4));
+               data.setPassword(rs.getString(5));
+               data.setAvalible(rs.getInt(6));
+               data.setType(rs.getInt(7));
            }
        }catch(Exception e){
            System.out.println(e.getMessage());
        }
        return data;
-   }
+   } 
    
-   public DefaultComboBoxModel categoryData(){
-       DefaultComboBoxModel model = new DefaultComboBoxModel();
-       String[][] c = new String[this.cantidadCategorias()][2];
-       int contador = 0;
+   public boolean InsertStock(Product producto){
+       boolean ret = true;
        try{
-           this.ps = cn.prepareStatement("SELECT id, nombre FROM dbo.categoria");
-           rs = ps.executeQuery();
-           while (rs.next()){
-               /*c[contador][0] = rs.getString("id");
-               c[contador][1] = rs.getString("id");
-               contador = contador + 1;*/
-               model.addElement(new Category(Integer.parseInt(rs.getString("id")), rs.getString("nombre")));
-           }
-       }catch(Exception e){
-           System.out.println(e.getMessage());
-       }      
-       return model;
-   }
-   
-   private int cantidadCategorias(){
-       int ret = 0;
-       try{
-        this.ps = cn.prepareStatement("SELECT count(id) FROM dbo.categoria");
-        rs = ps.executeQuery();
-        if(rs.next()){
-            ret = Integer.parseInt(rs.getString(1));
+        this.ps = cn.prepareStatement("EXEC SP_INSERT_STOCK ?, ?, ?, ?, ?");
+        this.ps.setString(1, producto.getCod_prod());
+        this.ps.setString(2, producto.getNombre());
+        this.ps.setInt(3, producto.getStock());
+        this.ps.setInt(4, producto.getPrecio());
+        this.ps.setInt(5, producto.getxMayor());
+        if (ps.executeUpdate() == 0){
+         ret = false;
         }
+        
        }catch(Exception e){
-           ret = 0;
+           ret = false;
            System.out.println(e.getMessage());
        }
      return ret;
-   }  
+    }    
+   //SP_INSERT_USER(@NOMBRE VARCHAR(50), @AP_PAT VARCHAR(50), @AP_MAT VARCHAR(50), @FONO INTEGER, @CONTRASEÑA VARCHAR(30), @VIGENTE INTEGER, @TIPO INTEGER)
+   public boolean InsertUser(users usuario){
+       boolean ret = true;
+       try{
+        this.ps = cn.prepareStatement("EXEC SP_INSERT_USER ?, ?, ?, ?, ?, ?, ?");
+        this.ps.setString(1, usuario.getName());
+           System.out.println(usuario.getName());
+        this.ps.setString(2, usuario.getLast_name());
+        System.out.println(usuario.getLast_name());
+        this.ps.setString(3, usuario.getSecond_ln());
+        System.out.println(usuario.getSecond_ln());
+        this.ps.setInt(4, usuario.getPhone());
+        System.out.println(usuario.getPhone());
+        this.ps.setString(5, usuario.getPassword());
+        System.out.println(usuario.getPassword());
+        this.ps.setInt(6, usuario.getAvalible());
+        System.out.println(usuario.getAvalible());
+        this.ps.setInt(7, usuario.getType());
+        System.out.println(usuario.getType());
+        if (ps.executeUpdate() == 0){
+         ret = false;
+        }
+        
+       }catch(Exception e){
+           ret = false;
+           System.out.println(e.getMessage());
+       }
+     return ret;
+    }    
 }

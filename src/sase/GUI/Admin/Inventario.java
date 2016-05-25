@@ -8,6 +8,7 @@ package sase.GUI.Admin;
 import java.sql.ResultSet;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import sase.Control.Clases.*;
 import sase.Control.methods;
 
@@ -17,9 +18,9 @@ import sase.Control.methods;
  */
 public class Inventario extends javax.swing.JFrame {
 
-    Category cat = new Category();
-
-    /**
+    methods met = new methods();
+    
+     /**
      * Creates new form Inventario
      */
     public Inventario() {
@@ -54,6 +55,11 @@ public class Inventario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jbtn_agregar.setText("Agregar");
+        jbtn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_agregarActionPerformed(evt);
+            }
+        });
 
         jtxt_codigo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -157,44 +163,15 @@ public class Inventario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_XMayorActionPerformed
 
-    /*public void cargaCombo() {
+    private void jbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarActionPerformed
+        Product prod = new Product(this.jtxt_codigo.getText(), this.jtxt_nombre.getText(),Integer.parseInt(this.jtxt_cantidad.getText()),Integer.parseInt(this.jtxt_precio.getText()), Integer.parseInt(this.jtxt_XMayor.getText()));
+        if (this.met.InsertStock(prod)){
+            JOptionPane.showMessageDialog(null, "Producto Insertado con Exito");
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al Insertar Producto, Intente nuevamente");
+        }
+    }//GEN-LAST:event_jbtn_agregarActionPerformed
 
-        /* DefaultComboBoxModel value;
-
-        value = new DefaultComboBoxModel();
-        
-        jcmb_categoria.setModel(value);
-
-        value.addElement(new Category("Seleccione", 0));
-         */
-        //Category cat = new Category();
-        //-------------methods met = new methods();
-        //String[][] c = met.categoryData();
-        //DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
-
-        //modeloCombo.addElement("Seleccione un campo");//es el primer registro q mostrara el combo       
-         
-        //try {
-          //  while (met.categoryData().next()){
-            //for (int i = 0; i < c.length; i++) {
-                //modeloCombo.addElement(new Category(Integer.parseInt(met.categoryData().getString(1)),met.categoryData().getString(2)));                
-            //}
-            //----------------jcmb_categoria.setModel(met.categoryData());//con esto lo agregamos al objeto al jcombobox  
-            //}
-        //} catch (Exception e) {
-          //  System.out.println(e.getMessage());
-       // }
-       
-       /*List oListaItem=CCItem.listarItem();
-        if(oListaItem!=null)
-        {
-            int size=oListaItem.size();           
-            for(int i=0;i < size; i++)
-            {
-                jcmb_categoria.addItem(oListaItem.get(i));
-            }         
-        }       
-    }*/
     
     /**
      * @param args the command line arguments

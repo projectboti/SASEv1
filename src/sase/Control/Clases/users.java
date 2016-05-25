@@ -11,27 +11,21 @@ package sase.Control.Clases;
  */
 public class users {
     
-    private String user;
-    private String name;
-    private String last_name;
-    private int type;
+    private String name, last_name, second_ln, password;
+    private int phone, avalible, type;
 
     public users(){
         
     }
-    public users(String user, String name, String last_name, int type) {
-        this.user = user;
+
+    public users(String name, String last_name, String second_ln, String password, int phone, int avalible, int type) {
         this.name = name;
         this.last_name = last_name;
+        this.second_ln = second_ln;
+        this.password = password;
+        this.phone = phone;
+        this.avalible = avalible;
         this.type = type;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 
     public String getName() {
@@ -50,6 +44,38 @@ public class users {
         this.last_name = last_name;
     }
 
+    public String getSecond_ln() {
+        return second_ln;
+    }
+
+    public void setSecond_ln(String second_ln) {
+        this.second_ln = second_ln;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public int getAvalible() {
+        return avalible;
+    }
+
+    public void setAvalible(int avalible) {
+        this.avalible = avalible;
+    }
+
     public int getType() {
         return type;
     }
@@ -57,8 +83,6 @@ public class users {
     public void setType(int type) {
         this.type = type;
     }
-
-    
-    
+   
     
 }

@@ -10,19 +10,26 @@ package sase.Control.Clases;
  * @author VAIO
  */
 public class Product {
-    private String cod_prod, nombre, descripcion;
-    private int stock,categoria_id, precio;
+    private String cod_prod, nombre;
+    private int stock, precio, xMayor;
 
     public Product() {
     }
 
-    public Product(String cod_prod, String nombre, String descripcion, int stock, int categoria_id, int precio) {
+    public Product(String cod_prod, String nombre, int stock, int precio, int xMayor) {
         this.cod_prod = cod_prod;
         this.nombre = nombre;
-        this.descripcion = descripcion;
         this.stock = stock;
-        this.categoria_id = categoria_id;
         this.precio = precio;
+        this.xMayor = xMayor;
+    }
+
+    public int getxMayor() {
+        return xMayor;
+    }
+
+    public void setxMayor(int xMayor) {
+        this.xMayor = xMayor;
     }
 
     public String getCod_prod() {
@@ -41,28 +48,12 @@ public class Product {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public int getStock() {
         return stock;
     }
 
     public void setStock(int stock) {
         this.stock = stock;
-    }
-
-    public int getCategoria_id() {
-        return categoria_id;
-    }
-
-    public void setCategoria_id(int categoria_id) {
-        this.categoria_id = categoria_id;
     }
 
     public int getPrecio() {
