@@ -47,6 +47,12 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Login");
 
+        jpwd_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jpwd_passwordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,6 +95,7 @@ public class Login extends javax.swing.JFrame {
         ingreso = m.Login(contraseña);
         if (ingreso != 0) {
             if (ingreso == 1) {
+                dispose();
                 Principal p = new Principal();
                 p.carga(contraseña);
                 p.setVisible(true);
@@ -101,6 +108,10 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No existe usuario ingresado");
         }
     }//GEN-LAST:event_jbtn_iniciarActionPerformed
+
+    private void jpwd_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpwd_passwordActionPerformed
+        
+    }//GEN-LAST:event_jpwd_passwordActionPerformed
 
     /**
      * @param args the command line arguments

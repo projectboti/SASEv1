@@ -164,14 +164,29 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_XMayorActionPerformed
 
     private void jbtn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarActionPerformed
+        Product existe = met.foundProduct(this.jtxt_codigo.getText());
         Product prod = new Product(this.jtxt_codigo.getText(), this.jtxt_nombre.getText(),Integer.parseInt(this.jtxt_cantidad.getText()),Integer.parseInt(this.jtxt_precio.getText()), Integer.parseInt(this.jtxt_XMayor.getText()));
-        if (this.met.InsertStock(prod)){
-            JOptionPane.showMessageDialog(null, "Producto Insertado con Exito");
+        if(existe.getNombre() != null || existe.getNombre() != ""){
+            if (this.met.InsertStock(prod)){
+                JOptionPane.showMessageDialog(null, "Producto Insertado con Exito");
+                clean();
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al Insertar Producto, Intente nuevamente");
+                clean();
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Error al Insertar Producto, Intente nuevamente");
+            JOptionPane.showMessageDialog(null, "El producto que trata de Agregar ya Existe en la data");
+            clean();
         }
     }//GEN-LAST:event_jbtn_agregarActionPerformed
 
+    private void clean(){
+        this.jtxt_XMayor.setText("");
+        this.jtxt_precio.setText("");
+        this.jtxt_cantidad.setText("");
+        this.jtxt_codigo.setText("");
+        this.jtxt_nombre.setText("");
+    }
     
     /**
      * @param args the command line arguments

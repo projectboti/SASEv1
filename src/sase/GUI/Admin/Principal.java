@@ -42,7 +42,8 @@ public class Principal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jmnu_articulosA = new javax.swing.JMenuItem();
         jmnu_usuariosA = new javax.swing.JMenuItem();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jmnu_ventas = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,18 +63,26 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.add(jmnu_articulosA);
 
         jmnu_usuariosA.setText("Usuarios");
+        jmnu_usuariosA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmnu_usuariosAActionPerformed(evt);
+            }
+        });
         jMenu3.add(jmnu_usuariosA);
 
         jMenu1.add(jMenu3);
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Modificar");
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenu4.setText("Auditorias");
+
+        jmnu_ventas.setText("Ventas");
+        jmnu_ventas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
+                jmnu_ventasActionPerformed(evt);
             }
         });
-        jMenu1.add(jCheckBoxMenuItem1);
+        jMenu4.add(jmnu_ventas);
+
+        jMenu1.add(jMenu4);
 
         jMenuBar1.add(jMenu1);
 
@@ -108,9 +117,14 @@ public class Principal extends javax.swing.JFrame {
         inv.setVisible(true);
     }//GEN-LAST:event_jmnu_articulosAActionPerformed
 
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+    private void jmnu_usuariosAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnu_usuariosAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+    }//GEN-LAST:event_jmnu_usuariosAActionPerformed
+
+    private void jmnu_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnu_ventasActionPerformed
+        Ventas ven = new Ventas();
+        ven.setVisible(true);
+    }//GEN-LAST:event_jmnu_ventasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,14 +162,15 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel jlbl_name;
     private javax.swing.JMenuItem jmnu_articulosA;
     private javax.swing.JMenuItem jmnu_usuariosA;
+    private javax.swing.JMenuItem jmnu_ventas;
     // End of variables declaration//GEN-END:variables
 }

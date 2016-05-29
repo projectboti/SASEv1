@@ -75,6 +75,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jpwd_password">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jpwd_passwordActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
