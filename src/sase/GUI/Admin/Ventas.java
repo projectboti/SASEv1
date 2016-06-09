@@ -50,9 +50,7 @@ public class Ventas extends javax.swing.JFrame {
         jtxt_apMat = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jtxt_medio = new javax.swing.JTextField();
+        jtxt_medio = new javax.swing.JComboBox<String>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -136,21 +134,14 @@ public class Ventas extends javax.swing.JFrame {
 
         jLabel7.setText("Medio de Pago");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jtxt_medio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
@@ -172,29 +163,22 @@ public class Ventas extends javax.swing.JFrame {
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtxt_apPat))
+                            .addComponent(jtxt_apPat, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jtxt_apMat)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(83, 83, 83)
+                            .addComponent(jLabel6))
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxt_medio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(74, 74, 74))
+                            .addComponent(jtxt_medio, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
@@ -208,23 +192,18 @@ public class Ventas extends javax.swing.JFrame {
                     .addComponent(jtxt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_apPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_apMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxt_medio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxt_fechaHasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jtxt_medio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), jtxt_medio.getText());
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jtxt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreActionPerformed
         // TODO add your handling code here:
@@ -235,23 +214,23 @@ public class Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_apPatActionPerformed
 
     private void jtxt_nombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_nombreFocusLost
-       this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), jtxt_medio.getText());
+       this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), "");
     }//GEN-LAST:event_jtxt_nombreFocusLost
 
     private void jtxt_apPatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_apPatFocusLost
-        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), jtxt_medio.getText());
+        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), "");
     }//GEN-LAST:event_jtxt_apPatFocusLost
 
     private void jtxt_apMatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_apMatFocusLost
-        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), jtxt_medio.getText());
+        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), "");
     }//GEN-LAST:event_jtxt_apMatFocusLost
 
     private void jtxt_fechaDesdeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_fechaDesdeFocusLost
-        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), jtxt_medio.getText());
+        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), "");
     }//GEN-LAST:event_jtxt_fechaDesdeFocusLost
 
     private void jtxt_fechaHastaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxt_fechaHastaFocusLost
-        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(), jtxt_medio.getText());
+        this.cargaTabla(jtxt_fechaDesde.getText(), jtxt_fechaHasta.getText(), jtxt_nombre.getText(), jtxt_apPat.getText(), jtxt_apMat.getText(),"");
     }//GEN-LAST:event_jtxt_fechaHastaFocusLost
 
     private void cargaTabla(String fechaDesde, String fechaHasta, String nombre, String ap_pat, String ap_mat, String medioPago) {
@@ -317,8 +296,6 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -334,7 +311,7 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_apPat;
     private javax.swing.JTextField jtxt_fechaDesde;
     private javax.swing.JTextField jtxt_fechaHasta;
-    private javax.swing.JTextField jtxt_medio;
+    private javax.swing.JComboBox<String> jtxt_medio;
     private javax.swing.JTextField jtxt_nombre;
     // End of variables declaration//GEN-END:variables
 }

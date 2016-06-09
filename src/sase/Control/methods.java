@@ -130,8 +130,6 @@ public class methods {
     }
 
     public ResultSet showSales(String fechaDesde, String fechaHasta, String nombre, String ap_pat, String ap_mat, String medioPago) {
-        String[][] ret;
-
         int fechaDesdeHab = 0;
         String condition = "";
         String and = " and ";
@@ -156,7 +154,7 @@ public class methods {
                 fechaDesdeHab = 1;
             } else if (retornado[i] != 0 && i == 1) {
                 if (fechaDesdeHab > 0) {
-                    condition = primera;
+                    condition = and + primera;
                 }
             } else if (retornado[i] != 0 && i == 2) {
                 condition = condition + and + segunda;
@@ -171,23 +169,10 @@ public class methods {
 
         String sql = "select vent.cod_venta, us.nombre ,us.ap_paterno, us.ap_materno, vent.monto, replace(convert(NVARCHAR, vent.fecha, 103), ' ', '/') as fecha, med.nombre as medio from venta vent, usuario us, medio_pago med where us.contraseña = vent.usuario and med.id = vent.medio_pago " + condition;
         try {            
-            int filas = this.countSales(condition);
-            int i = 0;
-            ret = new String[filas][7];
             System.out.println(sql);
             this.ps = cn.prepareStatement(sql);
-            rs = ps.executeQuery();                
-                    /*while(rs.next()){
-                    System.out.println(rs.getString(1));
-                    ret[i][0] = rs.getString(1);
-                    ret[i][1] = rs.getString(2);
-                    ret[i][2] = rs.getString("ap_paterno");
-                    ret[i][3] = rs.getString("ap_materno");
-                    ret[i][4] = rs.getString("monto");
-                    ret[i][5] = rs.getString("fecha");
-                    ret[i][6] = rs.getString("medio");
-                    i++;
-                    } */          
+            rs = ps.executeQuery();         
+                   
         } catch (Exception e) {
             System.out.println(e.getMessage());
             rs = null;
